@@ -13,29 +13,27 @@ export default function Tema({ bgColor, setBgColor, colors, textColor }) {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: bgColor,
+            backgroundColor: 'transparent', // ubah jadi transparan penuh
             padding: 24,
             borderRadius: 16,
             margin: 24,
             color: textColor,
             transition: 'background 0.3s, color 0.3s',
         }}>
-            <button
-                onClick={changeColor}
+            <div
                 style={{
                     marginBottom: 16,
                     padding: '8px 16px',
                     borderRadius: 8,
-                    border: 'none',
-                    background: bgColor,
                     color: textColor,
-                    cursor: 'pointer',
                     fontWeight: 'bold',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+                    fontSize: 18, // ukuran lebih kecil
+                    textAlign: 'center',
+                    userSelect: 'none',
                 }}
             >
                 Change Background
-            </button>
+            </div>
             <div style={{ display: 'flex', gap: 10 }}>
                 {colors.map((color) => (
                     <button

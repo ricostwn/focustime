@@ -147,7 +147,7 @@ export default function index() {
 					setIsTimeUp={setIsTimeUp}
 				/>
 				<About />
-				<Tema bgColor={bgColor} setBgColor={setBgColor} colors={colors} textColor={getTextColor()} />
+				<Tema bgColor={bgColor} setBgColor={setBgColor} colors={colors} textColor="#fff" />
 				<Alarm ref={alarmRef} />
 				<ModalSetting
 					openSetting={openSetting}
