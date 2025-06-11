@@ -12,6 +12,7 @@ export default function Timer({
 	isTimeUp,
 	muteAlarm,
 	reset,
+	setIsTimeUp, // tambahkan prop baru
 }) {
 	const options = ["Pomodoro", "Short Break", "Long Break"];
 
@@ -47,7 +48,10 @@ export default function Timer({
 				{isTimeUp && (
 					<FiBellOff
 						className="text-3xl text-white cursor-pointer"
-						onClick={muteAlarm}
+						onClick={() => {
+							muteAlarm();
+							setIsTimeUp && setIsTimeUp(false);
+						}}
 					/>
 				)}
 			</div>

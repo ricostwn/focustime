@@ -144,6 +144,7 @@ export default function index() {
 					muteAlarm={muteAlarm}
 					isTimeUp={isTimeUp}
 					reset={reset}
+					setIsTimeUp={setIsTimeUp}
 				/>
 				<About />
 				<Tema bgColor={bgColor} setBgColor={setBgColor} colors={colors} textColor={getTextColor()} />
