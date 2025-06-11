@@ -4,6 +4,16 @@ import Alarm from "../components/Alarm";
 import ModalSetting from "../components/ModalSetting";
 import Navigation from "../components/Navigation";
 import Timer from "../components/Timer";
+import Tema from "../components/Tema";
+
+const colors = [
+	{ bg: '#4B006E', text: '#fff' }, // ungu tua
+	{ bg: '#145A32', text: '#fff' }, // hijau tua
+	{ bg: '#444444', text: '#fff' }, // abu-abu
+	{ bg: '#FFA500', text: '#222' }, // orange
+	{ bg: '#FF3B3B', text: '#222' }, // merah
+	{ bg: '#8F00FF', text: '#222' }, // violet
+];
 
 export default function index() {
 	const [pomodoro, setPomodoro] = useState(25);
@@ -15,6 +25,7 @@ export default function index() {
 	const [ticking, setTicking] = useState(false);
 	const [isTimeUp, setIsTimeUp] = useState(false);
 	const [openSetting, setOpenSetting] = useState(false);
+	const [bgColor, setBgColor] = useState(colors[0].bg);
 
 	const alarmRef = useRef();
 	const pomodoroRef = useRef();
@@ -114,9 +125,14 @@ export default function index() {
 		};
 	}, [seconds, pomodoro, shortBreak, longBreak, ticking]);
 
+	const getTextColor = () => {
+		const found = colors.find((c) => c.bg === bgColor);
+		return found ? found.text : '#222';
+	};
+
 	return (
-		<div className="bg-green-900 min-h-screen font-inter">
-			<div className="max-w-2xl min-h-screen mx-auto">
+		<div className="min-h-screen font-inter" style={{ backgroundColor: bgColor, color: getTextColor(), transition: 'background 0.3s, color 0.3s' }}>
+			<div className="max-w-2xl min-h-screen mx-auto" style={{ color: getTextColor() }}>
 				<Navigation setOpenSetting={setOpenSetting} />
 				<Timer
 					stage={stage}
@@ -130,6 +146,7 @@ export default function index() {
 					reset={reset}
 				/>
 				<About />
+				<Tema bgColor={bgColor} setBgColor={setBgColor} colors={colors} textColor={getTextColor()} />
 				<Alarm ref={alarmRef} />
 				<ModalSetting
 					openSetting={openSetting}
