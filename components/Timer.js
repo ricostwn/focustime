@@ -22,7 +22,7 @@ export default function Timer({
 					return (
 						<h1
 							key={index}
-							className={` ${
+							className={`font-semibold ${
 								index === stage ? "bg-gray-500 bg-opacity-30" : ""
 							} p-1 cursor-pointer transition-all rounded`}
 							onClick={() => switchStage(index)}

@@ -1,64 +1,59 @@
 import React, { useState } from "react";
 
 export default function ToDoList() {
-	const [taskInput, setTaskInput] = useState("");
-	const [tasks, setTasks] = useState([]);
+    const [taskInput, setTaskInput] = useState("");
+    const [tasks, setTasks] = useState([]);
 
-	const addTask = () => {
-		if (taskInput.trim() !== "") {
-			setTasks([...tasks, taskInput.trim()]);
-			setTaskInput("");
-		}
-	};
+    const addTask = () => {
+        if (taskInput.trim() !== "") {
+            setTasks([...tasks, taskInput.trim()]);
+            setTaskInput("");
+        }
+    };
 
-	const deleteTask = (index) => {
-		const newTasks = tasks.filter((_, i) => i !== index);
-		setTasks(newTasks);
-	};
+    const deleteTask = (index) => {
+        setTasks(tasks.filter((_, i) => i !== index));
+    };
 
-	return (
-		<div className="w-full max-w-md mt-8 bg-gray-800 p-4 rounded-md">
-			<h2 className="text-xl font-semibold mb-3">To-Do List</h2>
-			<div className="flex gap-2 mb-4">
-				<input
-					type="text"
-					className="flex-grow px-3 py-2 rounded-md text-black"
-					placeholder="Add a new task"
-					value={taskInput}
-					onChange={(e) => setTaskInput(e.target.value)}
-					onKeyDown={(e) => {
-						if (e.key === "Enter") {
-							addTask();
-						}
-					}}
-				/>
-				<button
-					className="px-4 py-2 bg-blue-600 rounded-md hover:bg-blue-700 transition-colors"
-					onClick={addTask}
-				>
-					Add
-				</button>
-			</div>
-			<ul className="list-disc list-inside max-h-48 overflow-y-auto">
-				{tasks.map((task, index) => (
-					<li
-						key={index}
-						className="flex justify-between items-center mb-1 bg-gray-700 p-2 rounded"
-					>
-						<span>{task}</span>
-						<button
-							className="text-red-500 hover:text-red-700 font-bold ml-4"
-							onClick={() => deleteTask(index)}
-							aria-label={`Delete task ${task}`}
-						>
-							X
-						</button>
-					</li>
-				))}
-				{tasks.length === 0 && (
-					<li className="text-gray-400 italic">No tasks added yet.</li>
-				)}
-			</ul>
-		</div>
-	);
+    return (
+        <div className="w-full max-w-sm mx-auto mt-10 bg-white shadow-lg rounded-xl p-5">
+            <h2 className="text-2xl font-bold text-center mb-4 text-blue-500">To-Do</h2>
+            <div className="flex mb-4">
+                <input
+                    type="text"
+                    className="flex-grow px-3 py-2 rounded-l-md border border-gray-300 focus:outline-none text-blue-600"
+                    placeholder="Your task..."
+                    value={taskInput}
+                    onChange={(e) => setTaskInput(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && addTask()}
+                />
+                <button
+                    className="px-4 py-2 bg-blue-600 text-white rounded-r-md hover:bg-blue-700 transition font-semibold"
+                    onClick={addTask}
+                >
+                    +
+                </button>
+            </div>
+            <ul className="space-y-2 max-h-56 overflow-y-auto">
+                {tasks.length === 0 && (
+                    <li className="text-gray-400 text-center italic">No Task</li>
+                )}
+                {tasks.map((task, index) => (
+                    <li
+                        key={index}
+                        className="flex items-center justify-between bg-blue-500 px-3 py-2 rounded shadow-sm"
+                    >
+                        <span className="truncate font-semibold">{task}</span>
+                        <button
+                            className="ml-3 text-red-500 hover:text-red-700 text-lg font-black"
+                            onClick={() => deleteTask(index)}
+                            aria-label={`Hapus tugas ${task}`}
+                        >
+                            &#10005;
+                        </button>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 }
