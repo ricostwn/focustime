@@ -82,6 +82,21 @@ export default function index() {
 		reset();
 		setIsTimeUp(true);
 		alarmRef.current.play();
+		// Notifikasi browser
+		if ("Notification" in window && Notification.permission === "granted") {
+			let title = "Timer Selesai";
+			let body = "Waktu sudah habis!";
+			if (stage === 0) body = "Pomodoro finished! Time for a break.";
+			if (stage === 1) body = "Short Break finished! Back to focus.";
+			if (stage === 2) body = "Long Break finished! Back to focus.";
+			new Notification(title, { body });
+		}
+		// Hilangkan ikon alarm setelah 17 detik
+		setTimeout(() => {
+			setIsTimeUp(false);
+			alarmRef.current.pause();
+			alarmRef.current.currentTime = 0;
+		}, 17000);
 	};
 
 	const clockTicking = () => {
@@ -124,6 +139,12 @@ export default function index() {
 			clearInterval(timer);
 		};
 	}, [seconds, pomodoro, shortBreak, longBreak, ticking]);
+
+	useEffect(() => {
+		if ("Notification" in window && Notification.permission !== "granted") {
+			Notification.requestPermission();
+		}
+	}, []);
 
 	const getTextColor = () => {
 		const found = colors.find((c) => c.bg === bgColor);

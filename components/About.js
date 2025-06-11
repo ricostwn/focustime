@@ -28,17 +28,16 @@ function About() {
 			</div>
 			<div className="mt-5">
 				<h1 className="text-xl sm:text-2xl font-medium">
-					<span className="border-b-4 border-red-400 ">What</span> is Daily Focus?
+					<span className="border-b-4 border-red-400 ">How</span> to do a pomodoro timer?
 				</h1>
 				<p className="mt-5 tracking-wide opacity-70 text-lg break-words">
-					Daily focus is small clone project from{" "}
-					<a href="https://pomofocus.io/" target="_blank" className="underline">
-						https://pomofocus.io/.
-					</a>
-					It is open source and here is the code.
-					<a href="https://pomofocus.io/" target="_blank" className="underline">
-						https://github.com/Chensokheng/pomodoro
-					</a>
+					1. Type the task you want to work on in the task section.<br />
+					2. Set a timer for 25 minutes (1 Pomodoro session).<br />
+					3. Work on the task until the timer goes off.<br />
+					4. Take a 5-minute break.<br />
+					5. Repeat steps 2–4 four times.<br />
+					6. After 4 Pomodoro sessions, take a long break (15–30 <br />
+					   <span className="ml-6 inline-block">minutes</span>).
 				</p>
 			</div>
 		</div>
