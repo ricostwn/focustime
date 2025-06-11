@@ -1,5 +1,6 @@
 import React from "react";
 import { FiBellOff } from "react-icons/fi";
+import ToDoList from "./ToDoList";
 
 export default function Timer({
 	stage,
@@ -13,6 +14,7 @@ export default function Timer({
 	reset,
 }) {
 	const options = ["Pomodoro", "Short Break", "Long Break"];
+
 	return (
 		<div className="w-10/12 mx-auto pt-5 text-white flex flex-col justify-center items-center mt-10">
 			<div className="flex gap-5 items-center">
@@ -54,6 +56,9 @@ export default function Timer({
 					Reset
 				</button>
 			)}
+
+			{/* To-do list section */}
+			<ToDoList />
 		</div>
 	);
 }
