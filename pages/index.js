@@ -131,8 +131,8 @@ export default function index() {
 	};
 
 	return (
-		<div className="min-h-screen font-inter" style={{ backgroundColor: bgColor, color: getTextColor(), transition: 'background 0.3s, color 0.3s' }}>
-			<div className="max-w-2xl min-h-screen mx-auto" style={{ color: getTextColor() }}>
+		<div className="min-h-screen font-inter flex flex-col" style={{ backgroundColor: bgColor, color: getTextColor(), transition: 'background 0.3s, color 0.3s' }}>
+			<div className="flex-1 w-full max-w-2xl mx-auto" style={{ color: getTextColor() }}>
 				<Navigation setOpenSetting={setOpenSetting} />
 				<Timer
 					stage={stage}
