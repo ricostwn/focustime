@@ -7,11 +7,11 @@ import Timer from "../components/Timer";
 import Tema from "../components/Tema";
 
 const colors = [
-	{ bg: '#4B006E', text: '#fff' }, // ungu tua
-	{ bg: '#145A32', text: '#fff' }, // hijau tua
-	{ bg: '#444444', text: '#fff' }, // abu-abu
-	{ bg: '#FFA500', text: '#222' }, // orange
-	{ bg: '#FF3B3B', text: '#222' }, // merah
+	{ bg: '#332D56', text: '#fff' }, // ungu tua
+	{ bg: '#4E6688', text: '#fff' }, // hijau tua
+	{ bg: '#5409DA', text: '#fff' }, // abu-abu
+	{ bg: '#B33791', text: '#222' }, // orange
+	{ bg: '#52357B', text: '#222' }, // merah
 	{ bg: '#8F00FF', text: '#222' }, // violet
 ];
 
